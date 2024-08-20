@@ -18,23 +18,23 @@ const Home = () => {
         <div className="skill-container">
           <SkillCard
             title="Product Management"
-            overview="Strategic planning, roadmaps, and execution."
-            skills="Creating product strategies, Defining KPIs and metrics, Collaborating with design teams, Creating wireframes, High-fidelity designs, Feature prioritization, Release planning"
+            overview="Created the Product Strategy, defined the KPIs and metrics for client projects and internal tools and assets. Worked with the design team to create wireframes and high fidelity designs for the development process."
+            skills="Creating product strategies, Defining KPIs and metrics, Collaborating with design teams, Creating wireframes, High-fidelity designs, Feature prioritization, Release planning, Product Requirements Document"
           />
           <SkillCard
             title="Business Analyst"
-            overview="Gathering and analyzing requirements to drive project success."
-            skills="Documenting requirements, Creating user stories, Managing product backlogs, Detailed interaction with stakeholders, User flow and logic diagrams"
+            overview="Worked with multiple client Product owners to build various web and mobile applications for both iOS and Android devices by working with cross-functional teams."
+            skills="Documenting requirements, Creating user stories, Managing product backlogs, Detailed interaction with stakeholders, User flow and logic diagrams, Business Requirements Documentation"
           />
           <SkillCard
             title="Agile Scrum Master"
-            overview="Facilitating Agile processes and team dynamics."
-            skills="Sprint planning, Demos, Standups, Retrospectives, Ensuring adherence to Agile practices, Delivering projects on time"
+            overview="Worked as the scrum master on multiple projects to ensure that the AGILE processes and ceremonies are carried out and the project timelines for development are met."
+            skills="Sprint planning, Demos, Standups, Retrospectives, Ensuring adherence to Agile practices, Delivering projects on time, Software Development Life Cycle (SDLC), Capacity planning"
           />
           <SkillCard
             title="Front End Developer"
             overview="Designing and implementing user interfaces for web applications."
-            skills="React, HTML, CSS, JavaScript, Responsive design, Performance optimization"
+            skills="React, HTML, CSS, JavaScript, Responsive design, Git, Postman, Node.JS"
           />
         </div>
       </section>
