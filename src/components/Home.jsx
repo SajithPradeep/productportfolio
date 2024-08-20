@@ -17,7 +17,7 @@ const Home = () => {
       <h1>Sajith Pradeep</h1>
       {/* <img src={avatar} alt="Avatar" className="avatar" /> */}
       <p class="roles">Product Manager | Business Analyst | Frontend developer</p>
-      <p class="role-description">Experienced Business analyst & Scrum master, specialized in building Front end web and mobile applications for iOS and Android devices, looking out for opportunities to design and build cutting-edge products.</p>
+      <p class="role-description">Product manager and experienced Business analyst, specialized in building Front end web and mobile applications for iOS and Android devices, looking out for opportunities to design and build cutting-edge products.</p>
     </section>
 
     <section id="skills">
