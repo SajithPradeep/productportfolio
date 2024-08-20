@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Projects.css';
+import workExperience from "../assets/icons/work-experience.png"
 
 const ProjectAccordionItem = ({ title, orgDate,  children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,8 @@ const Projects = () => {
   return (
     <div>
       <section id="project-title">
-        <h2>Projects</h2>
+      <h2>Projects</h2>
+      <img src={workExperience} alt="HTML5" style={{ width: '100px', height: '100px' }} />
       </section>
     <section id="projects">
       <div className="accordion">

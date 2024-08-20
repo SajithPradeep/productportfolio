@@ -1,12 +1,14 @@
 import React from 'react';
 import '../styles/Contact.css';
 import resume from '../assets/Sajith_Pradeep_Resume.pdf'; 
+import contactIcon from "../assets/icons/contacts.png";
 
 const Contact = () => {
   return (
     <div>
       <section id="contact-title">
       <h2>Let's Build Some Products Together! </h2>
+      <img src={contactIcon} alt="HTML5" style={{ width: '100px', height: '100px' }} />
       </section>
     <section id="contact">
       <p>Got a product idea brewing? Or a problem that’s keeping you up at night?</p>

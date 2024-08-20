@@ -6,12 +6,14 @@ import productManagement from "../assets/icons/product-management.png";
 import businessAnalyst from "../assets/icons/data-analysis.png";
 import scrumMaster from "../assets/icons/scrum.png";
 import frontendEngineer from "../assets/icons/ui-design.png";
+import productManagerIcon from "../assets/icons/man.png";
 
 
 const Home = () => {
   return (
     <div>
       <section id="home">
+      <img src={productManagerIcon} alt="HTML5" style={{ width: '150px', height: '150px' }} />
       <h1>Sajith Pradeep</h1>
       {/* <img src={avatar} alt="Avatar" className="avatar" /> */}
       <p class="roles">Product Manager | Business Analyst | Frontend developer</p>

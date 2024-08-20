@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Blogs.css';
+import blogsIcon from "../assets/icons/rejected.png";
 
 const Blogs = () => {
   const blogPosts = [
@@ -27,6 +28,7 @@ const Blogs = () => {
     <div>
       <section id="blogs-title">
         <h2>My Blogs</h2> 
+        <img src={blogsIcon} alt="HTML5" style={{ width: '100px', height: '100px' }} />
       </section>
     <section id="blogs">
       <div className="blog-list">

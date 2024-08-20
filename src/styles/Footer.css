@@ -6,4 +6,21 @@
     padding: 20px;
     margin-top: 50px;
   }
+
+  .contact-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-list p {
+    margin: 10px 20px;
+  }
+
+
+  .reference-icon a { 
+    color: #fff;
+    font-size: 0.9rem;
+  }
   
