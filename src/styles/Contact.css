@@ -1,6 +1,21 @@
 /* src/styles/Contact.css */
 #contact p {
     font-size: 18px;
-    margin: 10px 0;
+    margin: 25px 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  #contact div {
+    margin-top: 50px;
+  }
+  #contact div:hover {
+    transform: scale(1.02);
   }
   
+.download-button {
+  border: 1px solid #9e9a9a;
+  border-radius: 10px;
+  box-shadow: black;
+  padding: 20px;
+  font-weight: bold;
+}

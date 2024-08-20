@@ -14,7 +14,8 @@
   
   #home .roles {
     font-size: 24px;
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
   }
   
   #home .role-description {
@@ -32,6 +33,10 @@
   #skills {
     padding: 50px 20px;
     background-color: #f4f4f4; /* Light background for contrast */
+  }
+
+  #skills h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .skill-container {
