@@ -1,4 +1,20 @@
 /* src/styles/Contact.css */
+#contact-title {
+  font-size: 2.0rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #1abc9c;
+  padding: 50px 20px;
+  max-width: 1000px;
+  height: 150px;
+}
+
+#contact {
+  background-color: #e5e6e7;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 #contact p {
     font-size: 18px;
     margin: 25px 0;

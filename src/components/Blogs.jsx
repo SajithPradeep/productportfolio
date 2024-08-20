@@ -24,19 +24,23 @@ const Blogs = () => {
   ];
 
   return (
+    <div>
+      <section id="blogs-title">
+        <h2>My Blogs</h2> 
+      </section>
     <section id="blogs">
-      <h2>My Blogs</h2>
       <div className="blog-list">
         {blogPosts.map((blog, index) => (
           <div key={index} className="blog-post">
-            <h3>{blog.title}</h3>
+            <h3>[WIP] {blog.title}</h3>
             <p><em>{blog.date}</em></p>
             <p>{blog.summary}</p>
-            <a href={blog.link}>Read More</a>
+            {/* <a href={blog.link}>Read More</a> */}
           </div>
         ))}
       </div>
     </section>
+    </div>
   );
 };
 

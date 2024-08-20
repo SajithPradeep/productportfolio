@@ -4,8 +4,11 @@ import resume from '../assets/Sajith_Pradeep_Resume.pdf';
 
 const Contact = () => {
   return (
+    <div>
+      <section id="contact-title">
+      <h2>Let's Build Some Products Together! </h2>
+      </section>
     <section id="contact">
-      <h2>Let's Brew Some Ideas Together! </h2>
       <p>Got a product idea brewing? Or a problem that’s keeping you up at night?</p>
        <p>  I’m all ears! Whether it’s a quick chat or a deep dive into brainstorming, I’m always up for a coffee-fueled session to solve some problems and talk shop about all things product. Reach out, and let’s make something awesome happen!</p>
       <p>Email: <a href="mailto:[Your Email]">sajith.pradeep1993@gmail.com</a></p>
@@ -17,6 +20,7 @@ const Contact = () => {
         </a>
       </div>
     </section>
+    </div>
   );
 };
 

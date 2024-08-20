@@ -1,4 +1,13 @@
 /* src/styles/Blogs.css */
+#blogs-title {
+  font-size: 2.0rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #1abc9c;
+  padding: 50px 20px;
+  max-width: 1000px;
+  height: 150px;
+}
+
 #blogs {
     background-color: #f9f9f9;
     padding: 50px 20px;

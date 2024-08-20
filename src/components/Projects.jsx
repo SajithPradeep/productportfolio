@@ -26,8 +26,11 @@ const ProjectAccordionItem = ({ title, orgDate,  children }) => {
 
 const Projects = () => {
   return (
+    <div>
+      <section id="project-title">
+        <h2>Projects</h2>
+      </section>
     <section id="projects">
-      <h2>Projects</h2>
       <div className="accordion">
         <ProjectAccordionItem title="Blood Glucose and Insulin tracking Class 2 SAMD app for an American Pharmaceutical client" orgDate="Product Manager, Deloitte Consulting">
           <p>
@@ -106,6 +109,7 @@ const Projects = () => {
         </ProjectAccordionItem>
       </div>
     </section>
+    </div>
   );
 };
 
