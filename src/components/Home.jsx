@@ -6,18 +6,23 @@ import productManagement from "../assets/icons/product-management.png";
 import businessAnalyst from "../assets/icons/data-analysis.png";
 import scrumMaster from "../assets/icons/scrum.png";
 import frontendEngineer from "../assets/icons/ui-design.png";
-import productManagerIcon from "../assets/icons/man.png";
+import resume from '../assets/Sajith_Pradeep_Resume.pdf'; 
+import aboutImage from '../assets/about.jpg';
 
 
 const Home = () => {
   return (
     <div>
       <section id="home">
-      <img src={productManagerIcon} alt="HTML5" style={{ width: '150px', height: '150px' }} />
+      <img src={aboutImage} alt="HTML5" style={{ width: 'auto', maxWidth: '400px', height: '250px', borderRadius: '50%' }} />
       <h1>Sajith Pradeep</h1>
-      {/* <img src={avatar} alt="Avatar" className="avatar" /> */}
       <p class="roles">Product Manager | Business Analyst | Frontend developer</p>
       <p class="role-description">Product manager and experienced Business analyst, specialized in building Front end web and mobile applications for iOS and Android devices, looking out for opportunities to design and build cutting-edge products.</p>
+      <div className="download-button-home">
+        <a href={resume} download="SajithPradeep_Resume.pdf">
+            Download My Resume
+        </a>
+      </div>
     </section>
 
     <section id="skills">

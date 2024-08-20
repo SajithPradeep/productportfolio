@@ -49,6 +49,19 @@
   .skill-card {
     flex: 1;
   }
+
+  .download-button-home {
+    margin-top: 50px;
+  }
+
+  .download-button-home a {
+    border: 1px solid #066a56;
+    color: #066a56;
+    background-color: rgb(215, 228, 240);
+    border-radius: 10px;
+    padding: 20px;
+    font-weight: bold;
+  }
   
   /* Ensure responsiveness */
   @media (max-width: 768px) {

@@ -8,7 +8,7 @@ const Contact = () => {
     <div>
       <section id="contact-title">
       <h2>Let's Build Some Products Together! </h2>
-      <img src={contactIcon} alt="HTML5" style={{ width: '100px', height: '100px' }} />
+      <img src={contactIcon} alt="HTML5" style={{ width: '80px', height: '80px' }} />
       </section>
     <section id="contact">
       <p>Got a product idea brewing? Or a problem that’s keeping you up at night?</p>
