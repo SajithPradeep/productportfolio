@@ -1,14 +1,105 @@
-/* src/styles/Projects.css */
-#projects ul {
-    list-style-type: none;
-    padding: 0;
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.accordion .accordion-item:hover {
+  border: 1px solid;
+}
+
+.accordion-title {
+  background-color: #f8f9fa;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.accordion-title h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  width: 50%;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.accordion-title span {
+  font-size: 1.5rem;
+  width: 5%;
+}
+
+.accordion-content {
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: left;
+}
+
+ul li {
+  margin-top: 10px;
+}
+
+.desktop {
+  display: block;
+}
+
+.responsive {
+  display: none;
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  #projects li {
-    background-color: #3498db;
-    color: white;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
+  to {
+    opacity: 1;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .accordion-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .accordion-title h3, .accordion-title h5 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    width: auto;
+  }
+
+  .responsive {
+    display: block;
+    font-size: 16px;
+  }
+
+  .responsiveDown {
+    padding: 20px 0;
+  }
+
+  .desktop {
+    display: none;
+    font-size: 12px;
+  }
+
+  .accordion-title .seeDetails span {
+    font-size: 16px;
+    width: auto;
+  }
+
+  section {
+    padding: 15px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }  
+
+  .accordion-content ul {
+    padding-left: 15px;
+  }
+}
