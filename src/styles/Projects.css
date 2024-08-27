@@ -1,99 +1,130 @@
-#project-title {
-  font-size: 2.0rem;
+/* Existing styles for #project-title remain the same */
+
+/* Updated styles for tabs */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #1abc9c;
+  background-color: #f8f8f8;
+  padding: 10px 10px 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.tab {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  transition: 0.3s;
+  font-size: 17px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  flex-grow: 1;
+  text-align: center;
+  color: #333;
+  border-radius: 8px 8px 0 0;
+  margin-right: 5px;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.tab:hover {
+  background-color: #e0e0e0;
+}
+
+.tab.active {
   background-color: #1abc9c;
-  padding: 50px 20px;
-  max-width: 1000px;
-  height: 150px;
+  color: white;
 }
 
-#projects h3 {
-  text-align: left;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.tab-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Redesigned accordion styles */
 .accordion-item {
-  border-radius: 5px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-
-.accordion .accordion-item:hover {
-  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .accordion-title {
-  background-color: #e5e6e7;
-  color: rgb(14, 14, 14);
-  padding: 10px;
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 15px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .accordion-title:hover {
-  background-color: #d4d7d6;
+  background-color: #e8e8e8;
 }
 
 .accordion-title h3 {
   margin: 0;
-  font-size: 1.2rem;
-  width: 70%;
+  font-size: 1.1rem;
+  flex-grow: 1;
   text-align: left;
-  padding-left: 40px;
 }
 
 .accordion-title h5 {
-  width: 20%;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 20px;
 }
 
-.accordion-title span {
-  font-size: 1.5rem;
-  width: 5%;
+.seeDetails {
+  font-size: 1.2rem;
+  color: #1abc9c;
+}
+.seeDetails-responsive {
+  display: none;
 }
 
 .accordion-content {
-  padding: 10px;
-  background-color: #ffffff;
-  border-top: 1px solid #ddd;
-  animation: fadeIn 0.3s ease-in-out;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
   text-align: left;
 }
 
-ul li {
-  margin-top: 10px;
+.accordion-content ul {
+  padding-left: 20px;
+  margin: 0;
 }
 
-.desktop {
-  display: block;
+.accordion-content li {
+  margin-bottom: 10px;
 }
 
-.responsive {
-  display: none;
-  font-size: 16px;
+#project-title {
+  background-color: #1abc9c;
+  font-size: 20px;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#project-title img {
+  width: 100px;
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
-  #project-title{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+  .tabs {
+    flex-wrap: wrap;
   }
 
-  #project-title h2 { 
-    margin: 0;
-    margin-top: 20px;
+  .tab {
+    flex-basis: calc(50% - 5px);
+    margin-bottom: 10px;
   }
 
   .accordion-title {
@@ -101,41 +132,24 @@ ul li {
     align-items: flex-start;
   }
 
-  .accordion-title h3, .accordion-title h5 {
-    font-size: 1rem;
+  .accordion-title h3 {
     margin-bottom: 5px;
-    margin-top: 10px;
-    width: auto;
-    padding: 0 40px;
-    text-align: left;
   }
 
-  .responsive {
-    display: block;
-    font-size: 16px;
+  .accordion-title h5 {
+    margin: 0 0 10px 0;
   }
 
-  .responsiveDown {
-    padding: 20px 0;
-  }
-
-  .desktop {
+  .seeDetails {
     display: none;
-    font-size: 12px;
+    align-self: flex-end;
   }
-
-  .accordion-title .seeDetails span {
-    font-size: 16px;
-    width: auto;
-  }
-
-  section {
-    padding: 15px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }  
-
-  .accordion-content ul {
-    padding-left: 15px;
+  .seeDetails-responsive {
+    display: none;
+    font-size: 1.2rem;
+    color: #11866f;
+    align-self: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
   }
 }
