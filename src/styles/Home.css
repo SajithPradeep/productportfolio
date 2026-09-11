@@ -189,11 +189,14 @@
   border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
 }
 
+/* Wraps rather than squeezing: a long industry label would otherwise run to two
+   lines and crowd the date sitting beside it. */
 .feature__meta {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  gap: 6px 12px;
   margin-bottom: 14px;
 }
 

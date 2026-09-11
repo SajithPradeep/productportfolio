@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { about, timeline, profile } from '../data/site';
+import {
+  about, timeline, profile, sideProjects, certifications, education,
+} from '../data/site';
 import { useRevealGroup } from '../hooks/useReveal';
 import portrait from '../assets/about.jpg';
 import '../styles/About.css';
@@ -9,6 +11,7 @@ const About = () => {
   const bodyRef = useRevealGroup(0);
   const principlesRef = useRevealGroup(70);
   const timelineRef = useRevealGroup(60);
+  const sideRef = useRevealGroup(70);
 
   return (
     <>
@@ -79,6 +82,62 @@ const About = () => {
               </li>
             ))}
           </ol>
+
+        </div>
+      </section>
+
+      {/* Side projects are the closest thing here to end-to-end ownership —
+          built, shipped and iterated alone — so they earn a section. */}
+      <section className="section section--sunk">
+        <div className="wrap" ref={sideRef}>
+          <header className="section-head reveal">
+            <p className="eyebrow">Outside work</p>
+            <h2>Things I build on my own time</h2>
+            <p className="lede">
+              Small full-stack apps, built with AI-assisted development. They are also
+              the only products here where I own every decision.
+            </p>
+          </header>
+
+          <div className="side-grid">
+            {sideProjects.map((p) => (
+              <article className="side card reveal" key={p.name}>
+                <h3 className="side__name">{p.name}</h3>
+                <p className="side__stack">{p.stack}</p>
+                <p className="side__detail">{p.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="credentials">
+            <div className="credentials__col">
+              <h2 className="credentials__head">Certifications</h2>
+              <ul className="credentials__list">
+                {certifications.map((c) => (
+                  <li key={c.name}>
+                    <span className="credentials__name">{c.name}</span>
+                    <span className="credentials__meta">{c.issuer} · {c.year}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="credentials__col">
+              <h2 className="credentials__head">Education</h2>
+              <ul className="credentials__list">
+                <li>
+                  <span className="credentials__name">{education.degree}</span>
+                  <span className="credentials__meta">
+                    {education.institution} · {education.period}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <div className="about-cta">
             <Link to="/work" className="btn btn--primary">See the case studies</Link>

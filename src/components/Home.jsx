@@ -99,7 +99,7 @@ const Home = () => {
         <div className="wrap" ref={workRef}>
           <header className="section-head reveal">
             <p className="eyebrow">Selected work</p>
-            <h2>Two products worth talking about</h2>
+            <h2>Three worth talking about</h2>
           </header>
 
           <div className="feature-grid">

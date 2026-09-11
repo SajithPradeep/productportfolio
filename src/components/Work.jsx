@@ -134,9 +134,9 @@ const Work = () => {
           <p className="eyebrow">Work</p>
           <h1 className="work-head__title">Case studies</h1>
           <p className="lede">
-            Eight years across medical devices, aviation, retail, energy and enterprise
-            tooling. Each one below covers the problem, the calls I made, and what
-            actually came of it — including the project that never shipped.
+            A decade across agentic AI, medical devices, aviation, retail, energy and
+            industrial IoT. Each one covers the problem, the calls I made, and what
+            actually came of it — including where a number turned out not to hold up.
           </p>
         </div>
       </section>

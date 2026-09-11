@@ -1,58 +1,87 @@
 // ---------------------------------------------------------------------------
 // Single place to edit everything about you. Components read from here, so you
 // never have to go hunting through JSX to change a phone number or a headline.
+//
+// Source of truth: sajith-pradeep-professional-data.md (Sept 2026 extract).
+// Claims here are held to the same standard as the resume — nothing on this
+// site should be a number you can't source when asked.
 // ---------------------------------------------------------------------------
 
 export const profile = {
   name: 'Sajith Pradeep',
+
+  // Resume tagline. Actual current job title is Senior Product Specialist,
+  // which the About-page timeline states accurately.
   role: 'Product Manager',
 
-  // Shown under the name on the home page. Keep it to one line.
-  tagline: 'Medical devices, travel, and enterprise tools — now building toward AI products.',
+  tagline: 'Building agentic AI systems on Deloitte\'s AI innovation team.',
 
   email: 'sajith.pradeep1993@gmail.com',
   phone: '+91 77363 05685',
   phoneHref: '+917736305685',
+  location: 'Bangalore, India',
+
+  // !! VERIFY !! The professional-data extract flags linkedin.com/in/sajithpradeep
+  // as an unconfirmed inference. The URL below is the one from your own previous
+  // site, so it is the better-evidenced of the two — but confirm it and update
+  // both here and on the resume if the vanity URL is now live.
   linkedin: 'https://www.linkedin.com/in/sajith-pradeep-87b98bb5/',
   linkedinLabel: 'linkedin.com/in/sajith-pradeep',
-  location: 'India',
 
-  // Used for <meta> and link-preview cards.
-  siteUrl: 'https://sajithpradeep.netlify.app',
+  // Canonical domain, matching what the resume prints. The Netlify URL still
+  // serves the same build.
+  siteUrl: 'https://sajithpradeep.in',
+
   metaDescription:
-    'Sajith Pradeep — Product Manager. Shipped a Class 2 medical device app, ' +
-    'an airline day-of-travel product, and enterprise tools across five industries. ' +
-    'Engineer turned PM, now focused on AI products.',
+    'Sajith Pradeep — Product Manager on Deloitte\'s AI innovation team, building ' +
+    'agentic AI systems and Salesforce Agentforce products. 10+ years across ' +
+    'frontend engineering, business analysis and product management.',
 };
 
-// Home page intro. Two short paragraphs — this is the highest-read copy on the
-// whole site, so it stays deliberately tight.
+// Home page intro. Highest-read copy on the site, so it stays tight.
 export const intro = [
-  `I build products where the hard part is the constraint, not the feature list —
-   a Class 2 medical device app that recommends insulin doses, an airline product
-   measured in minutes saved before boarding, enterprise tools across life sciences,
-   retail, and manufacturing.`,
+  `I'm a product manager on Deloitte's AI innovation team, where I build agentic AI
+   systems and Salesforce Agentforce products — writing the agent instructions myself,
+   translating what SMEs know into something a team can actually build, and taking it
+   through to release. Three of the proof-of-concepts I've built have converted into
+   signed client engagements.`,
 
-  `I came up through engineering before moving into product, so I can argue with my
-   team about the implementation and not just the roadmap. What I'm looking for next
-   is a product where the impact is measurable and mine to own.`,
+  `Before this I spent a decade getting here the long way round: five years as a
+   business analyst, a stretch as a front-end engineer at Tesco and Shell, then
+   release ownership on a Class II medical device app. I still write code, which is
+   why I can prototype an idea rather than just describe it.`,
 ];
 
 // --- AI positioning -------------------------------------------------------
-// Deliberately modest and true. Fill `evidence` in as you build real AI work —
-// courses, side projects, evals you've run, papers you've implemented. Until
-// there's something concrete here, this section renders as intent, not claim.
+// Deliberately scoped to the agent/product layer. The extract is explicit that
+// there is no model-layer work — no fine-tuning, RAG architecture, or evaluation
+// design — and claiming otherwise would collapse in a technical screen.
 export const aiFocus = {
-  heading: 'Where I\'m heading',
-  body: `Closest thing I've shipped to an AI product is a regulated decision-support
-         system: an app that read glucose values off connected devices and recommended
-         insulin dose changes, where being wrong had real consequences. That problem —
-         how much authority you give an algorithm in a high-stakes workflow, and how you
-         prove it's safe enough to ship — is the one I want to keep working on.`,
+  heading: 'Where I work in AI',
+  body: `I build at the agent layer: scoping what an agent should do, writing its
+         instructions and skill files, setting acceptance criteria, and getting it
+         through build, review and rollout. Not training models — directing them, and
+         being accountable for whether the result is good enough to put in front of
+         a customer.`,
 
-  // Add items as they become true. Each: { label, detail }
-  // e.g. { label: 'Built', detail: 'A RAG evaluation harness for policy documents' }
-  evidence: [],
+  evidence: [
+    {
+      label: 'Agentforce',
+      detail: 'Wrote the agent instructions and skill files for three pursuit POCs — case management, production scheduling, and partner relationship management.',
+    },
+    {
+      label: 'Agentic products',
+      detail: 'Offshore product owner on two multi-agent systems: Agency OS and Marketing OS.',
+    },
+    {
+      label: 'AI tooling',
+      detail: 'Build interactive prototypes with live backends in Cursor and Claude Code, and wrote the Claude Code skills the team now uses to generate user stories.',
+    },
+    {
+      label: 'Governance',
+      detail: 'Agency OS is in ethical-AI and legal review ahead of rollout.',
+    },
+  ],
 };
 
 // --- About page -----------------------------------------------------------
@@ -61,126 +90,162 @@ export const about = {
   heading: 'About',
 
   paragraphs: [
-    `I'm a product manager at Deloitte, working with cross-functional teams on client
-     products across life sciences, aviation, retail and manufacturing. My work sits
-     between business, engineering and design — which in practice means translating
-     what a client says they want into something a team can actually build, and then
-     defending the parts that matter when the timeline gets tight.`,
+    `I'm a product manager at Deloitte, on the AI innovation team. My work is agentic
+     AI — systems where an agent does something a person used to do by hand, and where
+     most of the difficulty is deciding exactly how much the agent should be trusted to
+     do on its own. I write the agent instructions and skill files myself, set the
+     acceptance criteria, and run the ceremonies that get it built.`,
 
-    `I didn't start in product. I spent my first years as a front-end engineer and UX
-     designer, building React applications for enterprise clients. That background is
-     the thing I'd point to if you asked what makes me different from other PMs: I can
-     read the codebase, I know roughly what a request costs before I make it, and
-     design feedback from me tends to account for feasibility rather than ignore it.`,
+    `I got here the long way. Five years as a business analyst at Deloitte across
+     Southwest Airlines, Giant Eagle, HP and Hitachi — discovery, requirements, and
+     owning on-time delivery through test and deployment. Then a year of pure
+     engineering, building in React for Shell and Tesco. Then two years as a product
+     manager on a Class II medical device app for Eli Lilly, where release sequencing
+     and UAT rigour matter more than anything clever.`,
 
-    `The work I'm proudest of is the regulated kind — a Class 2 medical device
-     application where a wrong recommendation is a clinical event rather than a bad
-     review. That kind of constraint forces you to be precise about what a system is
-     allowed to decide on its own, which is the same question sitting at the centre of
-     every AI product being built right now.`,
+    `That engineering stretch is the thing I'd point to if you asked what makes me
+     different. I can read the codebase, I know roughly what a request costs before I
+     make it, and when I want to test an idea I build a working prototype instead of
+     describing one in a deck.`,
 
-    `What I want next is a product where the impact is measurable and mine to own.
-     Consulting teaches you range — five industries, a dozen clients, constant context
-     switching — but you hand the product over and rarely see the number move. I'd
-     like to stay long enough to find out.`,
+    `What I want next is a product I own end to end — one where I set the North Star,
+     watch real users hit it, and change the thing based on what they actually do.
+     Consulting gave me range across five industries. It rarely lets you stay long
+     enough to see the number move, and that's the part I'm missing.`,
   ],
 
-  // Short, specific, and checkable. Vague principles read as filler.
   principles: [
     {
-      title: 'Define the metric before the feature',
-      body: 'If nobody can say what number should move, the roadmap is a wish list. Most of my useful work happens in that argument.',
+      title: 'Say what you can source',
+      body: 'I have cut more numbers from my own resume than I have added. A claim that survives two follow-up questions is worth more than a bigger one that does not.',
     },
     {
-      title: 'Scope is the decision, not the constraint',
-      body: 'Cutting the right two things is usually what saves a deadline. I would rather ship four things that work than seven that mostly do.',
+      title: 'Go and ask the users',
+      body: 'A week of interviews on Agency OS changed which cloud platform we built on. Nobody would have found that in a requirements document.',
     },
     {
-      title: 'Resolve ambiguity on paper, not in code',
-      body: 'Edge cases settled in a logic diagram cost minutes. The same case settled by a developer guessing at 6pm costs a sprint.',
+      title: 'Prototype before you commit a team',
+      body: 'A working prototype with a live backend settles an argument that a slide deck will keep going for three weeks.',
     },
     {
-      title: 'Put the output where the work already happens',
-      body: 'A dashboard nobody opens has no value, however good the analysis behind it.',
+      title: 'Be precise about what you owned',
+      body: 'Influenced, contributed, decided and owned are four different things. Consulting work blurs them, and blurring them is how you lose credibility in an interview.',
     },
   ],
 };
 
-// Employment history for the About page timeline.
-//
-// !! VERIFY BEFORE PUBLISHING !!
-// The old site listed these employers without dates, so the periods below are
-// inferred from project ordering, not read from a source. Dates on a portfolio
-// must match your resume and LinkedIn exactly — background checks compare them.
-// Replace every `period` here once the Claude Desktop extraction comes back.
+// Employment history. Dates and titles verified against the professional-data
+// extract — these must continue to match your resume and LinkedIn exactly.
 export const timeline = [
   {
-    org: 'Deloitte',
-    role: 'Product Manager',
-    period: '2021 — Present',
-    note: 'Client products across life sciences, aviation, retail and manufacturing.',
+    org: 'Deloitte Consulting India',
+    role: 'Senior Product Specialist',
+    period: 'Aug 2024 — Present',
+    note: 'AI innovation team. Agentic AI systems and Salesforce Agentforce products.',
   },
   {
-    org: 'Deloitte',
-    role: 'Business Analyst · Scrum Master',
-    period: '2019 — 2021',
-    note: 'Requirements, user stories and agile delivery across five industries.',
+    org: 'Deloitte Consulting India',
+    role: 'Product Manager',
+    period: 'Mar 2022 — Jul 2024',
+    note: 'Class II SaMD diabetes management app and connected medication tracking for Eli Lilly.',
   },
   {
     org: 'Coffeebeans Consulting',
     role: 'Frontend Engineer',
-    period: '2019',
-    note: 'Order fulfilment portal for a UK retail chain.',
+    period: 'Jun 2021 — Mar 2022',
+    note: 'Consultant to Tesco on their delivery fulfilment portal.',
   },
   {
-    org: 'Wipro',
-    role: 'UX Designer & Frontend Engineer',
-    period: '2017 — 2019',
-    note: 'Employee portal for a multinational oil & gas corporation.',
+    org: 'Wipro Digital',
+    role: 'Senior Software Developer',
+    period: 'Jan 2021 — Jun 2021',
+    note: 'Hybrid analyst, designer and developer on Shell\'s internal employee portal.',
+  },
+  {
+    org: 'Deloitte Consulting India',
+    role: 'Business Analyst',
+    period: 'Oct 2015 — Dec 2020',
+    note: 'Southwest Airlines, Giant Eagle, HP and Hitachi engagements.',
   },
 ];
 
-// Reframed from the old PM / BA / Scrum / Frontend split, which read as a
-// generalist. These four say "senior PM with unusual depth" instead.
+// Four capabilities, each anchored to work that actually demonstrates it.
 export const capabilities = [
   {
-    title: 'Product strategy & metrics',
+    title: 'Agentic AI product ownership',
     summary:
-      'Defining what success actually means before anything gets built — then instrumenting it.',
+      'Scoping what an agent should do, then writing the instructions that make it do it.',
     detail:
-      'On the airline product I defined the core KPI as elapsed time from leaving home to ' +
-      'boarding, then broke it into measurable segments. Most of the work was arguing the ' +
-      'metric down to something a team could move.',
-    skills: ['KPI definition', 'Roadmapping', 'Feature prioritisation', 'Release planning', 'PRDs'],
+      'Offshore product owner on two multi-agent systems, and hands-on author of the ' +
+      'agent instructions and skill files for three Agentforce pursuit POCs — all three ' +
+      'of which converted into signed client engagements.',
+    skills: ['Salesforce Agentforce', 'Agent instruction authoring', 'Acceptance criteria', 'Multi-agent systems'],
   },
   {
-    title: 'Regulated & safety-critical products',
+    title: 'Turning SME knowledge into a buildable spec',
     summary:
-      'Shipping where a wrong output is a clinical event, not a bad user experience.',
+      'The gap between what an expert knows and what a team can build is where I spend most of my time.',
     detail:
-      'Product manager on a Class 2 SAMD (Software as a Medical Device) application for a ' +
-      'US pharmaceutical client — dose recommendations, connected-device data, and the ' +
-      'documentation discipline that regulated software demands.',
-    skills: ['Class 2 SAMD', 'Regulated documentation', 'Connected devices', 'Clinical workflows'],
+      'Marketing SMEs, IoT engineers, clinical stakeholders, client product owners — ' +
+      'translating domain knowledge into requirements, user stories and acceptance ' +
+      'criteria that a dev and QA team can work from without guessing.',
+    skills: ['Requirement translation', 'User stories', 'Discovery interviews', 'Backlog grooming'],
   },
   {
-    title: 'Discovery & research',
+    title: 'Release ownership in regulated software',
     summary:
-      'Getting to the real problem before committing a team to a solution.',
+      'Getting a medical device app out the door without a critical bug in it.',
     detail:
-      'Ran discovery workshops that produced empathy maps and prioritised feature lists, ' +
-      'then worked alongside design through wireframes to high-fidelity, writing the user ' +
-      'stories and logic diagrams that kept engineering unblocked.',
-    skills: ['Discovery workshops', 'Empathy mapping', 'User stories', 'Logic & flow diagrams'],
+      'Owned release planning and rollout sequencing for a Class II SaMD diabetes app ' +
+      'at Eli Lilly, coordinating dev teams of 12–14 across 5+ releases, clearing ' +
+      'cross-team dependencies and supporting UAT through to production.',
+    skills: ['Release planning', 'Dependency management', 'UAT', 'FDA compliance touchpoints', 'SAFe'],
   },
   {
     title: 'Engineering fluency',
     summary:
-      'Four years writing production front-end code before product — it still pays off daily.',
+      'A decade of writing React, and I still build my own prototypes.',
     detail:
-      'Built and shipped React applications for oil & gas and UK retail clients, including ' +
-      'raising test coverage on a live order-fulfilment portal. It means feasibility ' +
-      'conversations with engineers are short, and design feedback accounts for cost.',
-    skills: ['React', 'JavaScript', 'REST APIs', 'Git', 'Postman', 'Node.js'],
+      'Shipped production front-end for Tesco and Shell before moving into product. ' +
+      'Now build interactive prototypes with live backend integrations in Cursor and ' +
+      'Claude Code, and wrote the internal Claude Code skills the team uses daily.',
+    skills: ['React.js', 'JavaScript', 'Node.js', 'Cursor', 'Claude Code', 'Supabase / Firebase'],
   },
 ];
+
+// Small full-stack things built outside work. Worth showing — they are the
+// closest thing to end-to-end ownership in the whole portfolio.
+export const sideProjects = [
+  {
+    name: 'Second brain',
+    stack: 'Claude Code skills',
+    detail:
+      'A personal knowledge base that captures meeting notes and keeps a separate trail ' +
+      'of key decisions, so past context is searchable through chat. Logging notes and ' +
+      'decisions separately cut token consumption noticeably versus re-deriving from one ' +
+      'large skill file.',
+  },
+  {
+    name: 'Pregnancy journal',
+    stack: 'React · Firebase · Android',
+    detail:
+      'Tracks medication schedules, symptoms and doctor-visit notes for expecting mothers.',
+  },
+  {
+    name: 'Car expense tracker',
+    stack: 'React · Supabase',
+    detail: 'Logs fuel, maintenance and running costs.',
+  },
+];
+
+export const certifications = [
+  { name: 'Certified SAFe 6.0 Agilist', issuer: 'Scaled Agile', year: 'Mar 2025' },
+  { name: 'Human–Computer Interaction for AI Systems Design', issuer: 'University of Cambridge Online', year: 'Apr 2025' },
+  { name: 'Innovation of Products and Services: MIT\'s Approach to Design Thinking', issuer: 'MIT Sloan Executive Education', year: 'May 2025' },
+];
+
+export const education = {
+  degree: 'B.Tech, Electronics and Communications Engineering',
+  institution: 'Government Model Engineering College',
+  period: '2011 — 2015',
+};
