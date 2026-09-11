@@ -21,7 +21,11 @@ const CaseStudy = ({ study, defaultOpen }) => {
   const panelId = `cs-panel-${study.id}`;
 
   return (
-    <article className={`cs card reveal ${open ? 'is-open' : ''}`}>
+    // `reveal` deliberately lives on the wrapper, not here. useRevealGroup adds
+    // `is-visible` to the DOM imperatively; if that sat on an element whose
+    // className React also rewrites (which it does when `is-open` toggles),
+    // React would clobber the class and the card would fade back out.
+    <article className={`cs card ${open ? 'is-open' : ''}`}>
       <button
         type="button"
         className="cs__header"
@@ -165,7 +169,9 @@ const Work = () => {
 
           <div className="cs-list" ref={listRef} key={filter}>
             {visible.map((study, i) => (
-              <CaseStudy key={study.id} study={study} defaultOpen={i === 0} />
+              <div className="reveal" key={study.id}>
+                <CaseStudy study={study} defaultOpen={i === 0} />
+              </div>
             ))}
           </div>
         </div>

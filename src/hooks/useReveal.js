@@ -51,6 +51,12 @@ export function useReveal(delay = 0) {
 /**
  * Reveal a whole group of children with a stagger, without needing a ref per
  * item. Attach to the container; every `.reveal` descendant gets sequenced.
+ *
+ * CAUTION: `is-visible` is added straight to the DOM, so it survives only as
+ * long as React leaves that element's className alone. Never put `.reveal` on
+ * an element whose className string changes between renders — React rewrites
+ * the attribute, drops `is-visible`, and the element fades back out. Put
+ * `.reveal` on a static wrapper instead (see Work.jsx).
  */
 export function useRevealGroup(step = 70) {
   const ref = useRef(null);
