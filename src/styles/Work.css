@@ -1,0 +1,276 @@
+/* -------------------------------------------------------------- header */
+
+.work-head { padding-bottom: 0; }
+
+.work-head__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.5vw, 3.7rem);
+  margin-bottom: .3em;
+}
+
+.work-body { padding-top: clamp(30px, 4vw, 44px); }
+
+/* ------------------------------------------------------------- filters */
+
+.work-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .52em 1.05em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: .89rem;
+  font-weight: 560;
+  cursor: pointer;
+  transition: color .18s var(--ease), background-color .18s var(--ease),
+              border-color .18s var(--ease), transform .18s var(--ease);
+}
+.work-filter:hover { color: var(--ink); border-color: var(--muted); }
+.work-filter:active { transform: scale(.97); }
+
+.work-filter.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+.work-filter__count {
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
+  opacity: .6;
+}
+
+/* --------------------------------------------------------- case studies */
+
+.cs-list { display: grid; gap: 14px; }
+
+.cs {
+  overflow: hidden;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.cs:hover { border-color: color-mix(in srgb, var(--accent) 28%, var(--line)); }
+.cs.is-open { box-shadow: var(--shadow-md); }
+
+/* ------- header (the whole thing is the toggle button) ------- */
+
+.cs__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  padding: 24px 24px 22px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.cs__headline { flex: 1; min-width: 0; }
+
+.cs__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 11px;
+}
+
+.cs__status {
+  font-size: .76rem;
+  font-weight: 640;
+  letter-spacing: .01em;
+  color: var(--muted);
+}
+.cs__status--shipped { color: var(--ok); }
+.cs__status--mvp-halted { color: var(--warn); }
+
+.cs__title {
+  font-size: clamp(1.14rem, 2.4vw, 1.4rem);
+  line-height: 1.28;
+  margin-bottom: .32em;
+}
+
+.cs__role {
+  font-size: .85rem;
+  color: var(--muted);
+  margin-bottom: .8em;
+}
+.cs__period { font-variant-numeric: tabular-nums; }
+
+.cs__summary {
+  font-size: .96rem;
+  color: var(--ink-soft);
+  max-width: 72ch;
+  margin: 0;
+}
+
+.cs__toggle {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 2px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink-soft);
+  transition: transform .34s var(--ease), background-color .2s var(--ease),
+              border-color .2s var(--ease), color .2s var(--ease);
+}
+.cs__header:hover .cs__toggle {
+  background: var(--accent-wash);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.cs.is-open .cs__toggle { transform: rotate(180deg); }
+
+/* ------- expanding panel ------- */
+
+.cs__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .42s var(--ease);
+}
+.cs.is-open .cs__panel { grid-template-rows: 1fr; }
+
+.cs__panel-inner {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility .42s var(--ease);
+}
+.cs.is-open .cs__panel-inner { visibility: visible; }
+
+/* Fallback for browsers that can't animate fr units — no animation, but the
+   content still opens and closes correctly. */
+@supports not (grid-template-rows: 0fr) {
+  .cs__panel { display: block; height: 0; overflow: hidden; }
+  .cs.is-open .cs__panel { height: auto; }
+}
+
+.cs__divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 24px;
+}
+
+.cs__panel-inner > .cs__block:first-of-type { padding-top: 22px; }
+
+.cs__block { padding: 0 24px 20px; }
+
+.cs__block--accent {
+  border-left: 2px solid var(--accent);
+  margin: 0 24px 20px;
+  padding: 16px 20px;
+  background: var(--accent-wash);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.cs__block--accent .cs__label { color: var(--accent-ink); }
+
+.cs__label {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .7em;
+}
+
+.cs__block p {
+  font-size: .96rem;
+  color: var(--ink-soft);
+  max-width: 74ch;
+}
+
+.cs__list {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: .55em;
+  max-width: 74ch;
+}
+.cs__list li {
+  font-size: .95rem;
+  color: var(--ink-soft);
+  padding-left: .2em;
+}
+.cs__list li::marker { color: var(--accent); }
+
+/* ------- outcomes with provenance tiers ------- */
+
+.cs__outcomes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .6em;
+  max-width: 74ch;
+}
+.cs__outcomes li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+
+.cs__tier {
+  flex-shrink: 0;
+  min-width: 68px;
+  padding: .18em .55em;
+  border-radius: 5px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.cs__tier--measured { background: color-mix(in srgb, var(--ok) 15%, transparent); color: var(--ok); }
+.cs__tier--modeled  { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.cs__tier--scope    { background: var(--bg-sunk); color: var(--muted); border: 1px solid var(--line); }
+
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .cs__tier--measured, .cs__tier--modeled { background: var(--bg-sunk); }
+}
+
+.cs__reflection {
+  font-style: italic;
+  color: var(--muted) !important;
+}
+
+.cs__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0 24px 24px;
+}
+.cs__stack .tag { font-size: .74rem; }
+
+/* --------------------------------------------------------------- mobile */
+
+@media (max-width: 640px) {
+  .cs__header { padding: 20px 18px; gap: 12px; }
+  .cs__divider { margin-inline: 18px; }
+  .cs__block { padding-inline: 18px; }
+  .cs__block--accent { margin-inline: 18px; padding-inline: 16px; }
+  .cs__stack { padding-inline: 18px; }
+
+  .cs__outcomes li { flex-direction: column; gap: 4px; }
+  .cs__tier { min-width: 0; align-self: flex-start; }
+}

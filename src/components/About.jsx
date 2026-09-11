@@ -1,18 +1,92 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { about, timeline, profile } from '../data/site';
+import { useRevealGroup } from '../hooks/useReveal';
+import portrait from '../assets/about.jpg';
 import '../styles/About.css';
-import productManagerIcon from "../assets/icons/man.png";
+
 const About = () => {
+  const bodyRef = useRevealGroup(0);
+  const principlesRef = useRevealGroup(70);
+  const timelineRef = useRevealGroup(60);
+
   return (
-    <div>
-      <section id="about-title">
-        <h2>About Me</h2>
-        <img src={productManagerIcon} alt="HTML5" style={{ width: '100px', height: '100px' }} />
+    <>
+      <section className="section about-head">
+        <div className="wrap about-head__inner">
+          <div>
+            <p className="eyebrow">{about.heading}</p>
+            <h1 className="about-head__title">
+              Engineer first, <span className="about-head__em">product second</span>.
+            </h1>
+          </div>
+          <div className="about-head__portrait">
+            <img src={portrait} alt={profile.name} loading="lazy" />
+          </div>
+        </div>
       </section>
-    <section id="about">
-      <p>I am a Product manager and experienced business analyst working with cross-functional teams at Deloitte Studios, where I focus on developing client products, with a strong emphasis on user experience and customer satisfaction. My role bridges business, technology, and design to create products that are both appealing to the end users and aligned with the client's business objectives. I have collaborated with numerous clients across diverse industries, developing front-end applications for web and mobile (iOS and Android) platforms. Additionally, I work closely with design teams to craft solutions that address user pain points while maintaining a high-quality user experience.</p>
-      <p>Additionally, I also have expertise in Frontend web development, which has helped me understand the technical side of the product and enabled me to work closely with the Development and QA team. This has also helped me while providing design feedback by bringing the tech feasibility angle also into the picture. </p>
-    </section>
-    </div>
+
+      <section className="section about-body">
+        <div className="wrap" ref={bodyRef}>
+          <div className="about-prose reveal">
+            {about.paragraphs.map((para, i) => (
+              <p key={i} className={i === 0 ? 'about-prose__lead' : undefined}>
+                {para}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--sunk">
+        <div className="wrap" ref={principlesRef}>
+          <header className="section-head reveal">
+            <p className="eyebrow">How I work</p>
+            <h2>Four things I keep coming back to</h2>
+          </header>
+
+          <div className="principles">
+            {about.principles.map((p, i) => (
+              <article className="principle reveal" key={p.title}>
+                <span className="principle__num" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="principle__title">{p.title}</h3>
+                <p className="principle__body">{p.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap" ref={timelineRef}>
+          <header className="section-head reveal">
+            <p className="eyebrow">Where I've worked</p>
+            <h2>The path so far</h2>
+          </header>
+
+          <ol className="timeline">
+            {timeline.map((item, i) => (
+              <li className="timeline__item reveal" key={`${item.org}-${i}`}>
+                <span className="timeline__dot" aria-hidden="true" />
+                <div className="timeline__content">
+                  <p className="timeline__period">{item.period}</p>
+                  <h3 className="timeline__role">{item.role}</h3>
+                  <p className="timeline__org">{item.org}</p>
+                  <p className="timeline__note">{item.note}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="about-cta">
+            <Link to="/work" className="btn btn--primary">See the case studies</Link>
+            <Link to="/contact" className="btn btn--ghost">Get in touch</Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

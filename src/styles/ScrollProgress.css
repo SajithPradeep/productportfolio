@@ -1,0 +1,24 @@
+.scroll-progress {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 99;
+  pointer-events: none;
+  background: transparent;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--ink)));
+  /* Short transition smooths the rAF steps without lagging the scroll. */
+  transition: transform .08s linear;
+}
+
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .scroll-progress__bar { background: var(--accent); }
+}

@@ -1,45 +1,92 @@
-/* src/styles/Contact.css */
-#contact-title {
-  font-size: 2.0rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #1abc9c;
-  padding: 50px 20px;
-  max-width: 1000px;
-  height: 150px;
+.contact-head { padding-bottom: 0; }
+
+.contact-head__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 6vw, 3.5rem);
+  line-height: 1.08;
+  margin-bottom: .4em;
 }
 
-#contact {
-  background-color: #e5e6e7;
+.contact-head__lede { font-size: clamp(1.02rem, 2.1vw, 1.14rem); }
+
+.contact-body { padding-top: clamp(32px, 4.5vw, 46px); }
+
+/* ------------------------------------------------------------- channels */
+
+.channels { display: grid; gap: 12px; }
+
+.channel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  color: var(--ink);
+  transition: transform .28s var(--ease), box-shadow .28s var(--ease),
+              border-color .28s var(--ease);
+}
+.channel:hover {
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+}
+
+.channel__icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--accent-wash);
+  color: var(--accent);
+  transition: transform .28s var(--ease);
+}
+.channel:hover .channel__icon { transform: scale(1.07) rotate(-5deg); }
+
+.channel__text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+
+.channel__label {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.channel__value {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.channel__note {
+  font-size: .88rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* -------------------------------------------------------------- resume */
+
+.contact-resume {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-bottom: 50px;
+  padding: 26px 24px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg-sunk);
 }
 
-#contact p {
-    font-size: 18px;
-    margin: 25px 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+.contact-resume__title { font-size: 1.12rem; margin-bottom: .2em; }
+.contact-resume__note { font-size: .91rem; color: var(--muted); margin: 0; }
 
-  #contact div {
-    margin-top: 50px;
-  }
-  #contact div:hover {
-    transform: scale(1.02);
-  }
-  
-.download-button {
-  border: 1px solid #9e9a9a;
-  border-radius: 10px;
-  box-shadow: black;
-  padding: 20px;
-  font-weight: bold;
+@media (max-width: 520px) {
+  .contact-resume { flex-direction: column; align-items: stretch; text-align: left; }
+  .contact-resume .btn { justify-content: center; }
 }
-
-@media (max-width: 768px) {
-  #contact-title h2 {
-    font-size: 2rem;
-  }
-}
-

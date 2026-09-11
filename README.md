@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# sajithpradeep.netlify.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio — React (Create React App), deployed on Netlify.
 
-## Available Scripts
+## Running it
 
-In the project directory, you can run:
+```bash
+npm install
+npm start          # dev server at localhost:3000
+npm test           # test suite
+npm run build      # production bundle into build/
+python scripts/serve_build.py    # preview the built site with SPA routing
+```
 
-### `npm start`
+## Where the content lives
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**All copy is in `src/data/`.** You should not need to open a component to change
+what the site says.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| File | Contains |
+|---|---|
+| `src/data/site.js` | Name, contact details, hero copy, About page, capabilities, timeline, AI positioning |
+| `src/data/caseStudies.js` | Every case study on the Work page |
 
-### `npm test`
+### Adding a case study
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Append an object to the `caseStudies` array. The shape:
 
-### `npm run build`
+```js
+{
+  id: 'unique-slug',
+  group: 'pm' | 'ba' | 'eng',
+  featured: true,          // surfaces it on the home page
+  title, org, role, period, industry, status,
+  summary,                 // one sentence, shown collapsed
+  problem,                 // the context
+  approach: [],            // what you did
+  decisions: [],           // the calls you owned — the section hiring managers read
+  outcome: [ { text, tier } ],
+  reflection,              // optional
+  stack: [],
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Outcome tiers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Every outcome carries a provenance tag, rendered as a badge:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `measured` — someone actually recorded this number
+- `modeled` — derived from known inputs; be ready to show the arithmetic
+- `scope` — a fact about size, not about results
 
-### `npm run eject`
+This is deliberate. Unsourced percentages get you through a résumé screen and
+then fall apart in the interview, because the first follow-up is always *"how
+did you measure that?"* A claim you can defend beats a bigger one you can't.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+  App.js                  routes, theme, page transitions
+  components/             one component per route + Navbar/Footer/scroll helpers
+  data/                   all site content
+  hooks/
+    useTheme.js           light/dark, persisted, follows OS until set explicitly
+    useReveal.js          scroll-triggered entrance animations
+  styles/                 one stylesheet per component
+    GlobalStyles.css      design tokens — colours, type, spacing, shared primitives
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Colours, fonts and spacing are CSS custom properties in `GlobalStyles.css`.
+Change them there rather than in individual component styles.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Notes
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Routing is client-side; `public/_redirects` gives Netlify the SPA fallback.
+- Dark mode follows the OS until the visitor uses the toggle, then persists.
+- Animations respect `prefers-reduced-motion`.
+- `src/components/Blogs.jsx` still exists but has no route. Restore it by adding
+  the route in `App.js` and the link in `Navbar.jsx` — once there are real posts.

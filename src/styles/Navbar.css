@@ -1,78 +1,196 @@
-/* src/styles/Navbar.css */
-.navbar {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-h);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s var(--ease), background-color .25s var(--ease),
+              box-shadow .25s var(--ease);
 }
 
-.navbar-container {
+/* Browsers without color-mix still get a solid, readable bar. */
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .nav { background: var(--bg); }
+}
+
+.nav.is-scrolled {
+  border-bottom-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav__inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+/* ------------------------------------------------------------- brand --- */
+
+.nav__brand {
+  display: inline-flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 640;
+  letter-spacing: -.015em;
+  white-space: nowrap;
+}
+.nav__brand:hover { color: var(--ink); }
+
+.nav__mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: transform .25s var(--ease);
+}
+.nav__brand:hover .nav__mark { transform: rotate(-6deg) scale(1.06); }
+
+.nav__name { font-size: .97rem; }
+
+/* ------------------------------------------------------------- links --- */
+
+.nav__links { display: flex; align-items: center; gap: 4px; }
+
+.nav__link {
+  position: relative;
+  padding: 7px 13px;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  font-size: .93rem;
+  font-weight: 530;
+  transition: color .18s var(--ease), background-color .18s var(--ease);
+}
+.nav__link:hover { color: var(--ink); background: var(--bg-sunk); }
+
+.nav__link.is-active { color: var(--ink); font-weight: 620; }
+
+/* Underline grows from the centre on the active route. */
+.nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: nav-underline .32s var(--ease) both;
+  transform-origin: center;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+@keyframes nav-underline {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
 }
 
-.logo a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+/* ----------------------------------------------------------- actions --- */
+
+.nav__actions { display: flex; align-items: center; gap: 6px; }
+
+.nav__icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color .18s var(--ease), border-color .18s var(--ease),
+              background-color .18s var(--ease), transform .18s var(--ease);
+}
+.nav__icon-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-wash);
+  transform: rotate(-12deg);
 }
 
-.menu-toggle {
+.nav__burger {
   display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
   cursor: pointer;
 }
+.nav__burger span {
+  display: block;
+  height: 1.8px;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform .28s var(--ease), opacity .2s var(--ease);
+}
+.nav__burger.is-open span:nth-child(1) { transform: translateY(6.8px) rotate(45deg); }
+.nav__burger.is-open span:nth-child(2) { opacity: 0; }
+.nav__burger.is-open span:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
+.nav__scrim {
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  z-index: 90;
+  border: 0;
+  padding: 0;
+  background: rgba(10, 12, 16, .38);
+  backdrop-filter: blur(2px);
+  animation: fade-in .22s var(--ease) both;
+  cursor: default;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  transition: background-color 0.3s;
-}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 
-.nav-links a:hover {
-  background-color: #555;
-  border-radius: 4px;
-}
+/* -------------------------------------------------------------- mobile --- */
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
+@media (max-width: 760px) {
+  .nav__burger { display: flex; }
+  .nav__name { display: none; }
+
+  .nav__links {
+    position: fixed;
+    top: var(--nav-h);
     left: 0;
-    background-color: #333;
+    right: 0;
+    z-index: 95;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 14px 20px 22px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .22s var(--ease), transform .28s var(--ease);
   }
 
-  .nav-links.active {
-    display: flex;
+  .nav__links.is-open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
-  .nav-links a {
-    padding: 15px;
-    border-bottom: 1px solid #444;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+  .nav__link { padding: 13px 14px; font-size: 1.03rem; }
+  .nav__link.is-active::after { left: 14px; right: auto; width: 20px; bottom: 7px; }
 }

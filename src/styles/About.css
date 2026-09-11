@@ -1,19 +1,190 @@
-/* src/styles/About.css */
-#about {
-    background-color: #ecf0f1;
-  }
-  
-  #about p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-top: 40px;
-  }
-  
-  #about-title {
-    font-size: 2.0rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #1abc9c;
-    padding: 50px 20px;
-    max-width: 1000px;
-    height: 150px;
-  }
+/* --------------------------------------------------------------- header */
+
+.about-head { padding-bottom: 0; }
+
+.about-head__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 36px;
+}
+
+.about-head__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 6vw, 3.5rem);
+  line-height: 1.08;
+  margin: 0;
+}
+.about-head__em { color: var(--accent); font-style: italic; }
+
+.about-head__portrait {
+  width: clamp(96px, 16vw, 148px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.about-head__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* ---------------------------------------------------------------- prose */
+
+.about-body { padding-top: clamp(34px, 5vw, 52px); }
+
+/* Capped for readability but left-aligned, so the prose starts on the same
+   vertical line as the heading above rather than sitting centred. */
+.about-prose { max-width: 68ch; }
+
+.about-prose p {
+  font-size: 1.04rem;
+  line-height: 1.72;
+  color: var(--ink-soft);
+  margin-bottom: 1.35em;
+}
+
+.about-prose__lead {
+  font-size: clamp(1.12rem, 2.2vw, 1.28rem) !important;
+  color: var(--ink) !important;
+  line-height: 1.6 !important;
+}
+
+/* ----------------------------------------------------------- principles */
+
+/* Two-up rather than auto-fit: four items across three columns orphans the
+   last card at most desktop widths. */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+}
+
+.principle {
+  position: relative;
+  padding: 24px 22px 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.principle:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.principle__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--accent);
+  margin-bottom: .9em;
+}
+
+.principle__title {
+  font-size: 1.03rem;
+  line-height: 1.35;
+  margin-bottom: .5em;
+}
+
+.principle__body {
+  font-size: .93rem;
+  color: var(--muted);
+  line-height: 1.62;
+  margin: 0;
+}
+
+/* ------------------------------------------------------------- timeline */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 26px;
+  position: relative;
+  max-width: 62ch;
+}
+
+/* The connecting rail. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--line), transparent);
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: 30px;
+}
+.timeline__item:last-child { padding-bottom: 0; }
+
+.timeline__dot {
+  position: absolute;
+  left: -26px;
+  top: 7px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  transition: transform .25s var(--ease), background-color .25s var(--ease);
+}
+.timeline__item:hover .timeline__dot {
+  transform: scale(1.28);
+  background: var(--accent);
+}
+
+.timeline__period {
+  font-size: .79rem;
+  font-weight: 640;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: .35em;
+}
+
+.timeline__role {
+  font-size: 1.08rem;
+  margin-bottom: .12em;
+}
+
+.timeline__org {
+  font-size: .93rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: .4em;
+}
+
+.timeline__note {
+  font-size: .92rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 58ch;
+}
+
+.about-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: clamp(36px, 5vw, 54px);
+  padding-top: clamp(28px, 4vw, 38px);
+  border-top: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------- mobile */
+
+@media (max-width: 700px) {
+  .about-head__inner { grid-template-columns: 1fr; gap: 22px; }
+  .about-head__portrait { order: -1; }
+}
+
+@media (max-width: 520px) {
+  .about-cta .btn { flex: 1 1 100%; justify-content: center; }
+}

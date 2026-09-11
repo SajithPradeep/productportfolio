@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  flex: 1;
+  padding-top: var(--nav-h);
+  animation: page-in .42s var(--ease) both;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page { animation: none; }
+}
+
+/* Keyboard-only shortcut past the nav. Visible the moment it takes focus. */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  padding: .7em 1.2em;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: .9rem;
+  font-weight: 600;
+  border-radius: 0 0 var(--radius) var(--radius);
+  transition: transform .2s var(--ease);
+}
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  color: var(--on-accent);
 }
